@@ -1,3 +1,2 @@
 # -*- coding: utf-8 -*-
-
-token = ''
+token = 'WRITE YOUR API-TOKEN'

@@ -6,11 +6,11 @@ import MySQLdb
 import random
 
 # Connect to DataBase
-db = MySQLdb.connect(host='localhost',user='root', passwd='123', db='', charset='utf8')
+db = MySQLdb.connect(host='localhost',user='WRITE YOUR USERNAME', passwd='WRITE YOUR PASSWORD', db='WRITE YOUR DATABASE NAME', charset='utf8')
 
 # Admin settings
-admin_username = ''
-admin_id = ''
+admin_username = 'WRITE YOUR USERNAME IN TELEGRAM'
+admin_id = 'WRITE YOUR ID IN TELEGRAM'
 
 # Token connect to Bot (change in config.py)
 bot = telebot.TeleBot(config.token)
