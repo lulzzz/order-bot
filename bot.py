@@ -12,7 +12,7 @@ db = MySQLdb.connect(host='localhost',user='root', passwd='123', db='', charset=
 admin_username = ''
 admin_id = ''
 
-# Token connect to Bot
+# Token connect to Bot (change in config.py)
 bot = telebot.TeleBot(config.token)
 
 # Cursors
@@ -53,7 +53,7 @@ def handle_start(message):
         cursor.execute(sql_start)
         print (sql_start)
         db.commit()
-
+    # command for new order identification
     if (message.text == '/new') and (message.from_user.username == admin_username):
         sql_newrequest = """SELECT wallet, data, note FROM request WHERE status='0'"""
         cursor.execute(sql_newrequest)
@@ -70,14 +70,14 @@ def handle_start(message):
                                   %{"wallet": wallet,
                                     "data": data,
                                     "note": note, })
-
+    # command for accept identification
     if (message.text == '/accept') and (message.from_user.username == admin_username):
         acc_markup = telebot.types.ForceReply(selective=True)
         bot.send_message(message.chat.id, 'Number wallet that has been identified', reply_markup=acc_markup)
         global xaccept
         xaccept = True
 
-
+    # administrative commands
     if (message.text == '/admin') and (message.from_user.username == admin_username):
         bot.send_message(message.chat.id, '<b>Admin commands:</b>\n\n'
                                           '/new - withdrawal of new orders for identification\n'
